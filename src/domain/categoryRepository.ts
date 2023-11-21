@@ -1,6 +1,5 @@
-import Category from "./category"
-import CategoryNotFound from "./categoryNotFound"
-
+import Category from './category'
+import CategoryNotFound from './categoryNotFound'
 
 export default interface CategoryRepository {
   findAll(): Category[]
