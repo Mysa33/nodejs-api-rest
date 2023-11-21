@@ -1,0 +1,49 @@
+name: Install, build, and lint 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request: 
+    branches: [ "main" ]
+
+jobs:
+  
+  lint-and-format-client:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install packages
+        run: yarn --immutable
+      - name: Run the TS linter
+        run:  yarn lint
+      - name: Run prettier
+        run: yarn format
+
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install packages
+        run: yarn --immutable
+      - name: Run build
+        run:  yarn build

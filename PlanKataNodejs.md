@@ -26,4 +26,5 @@
     - Corriger l'erreur du linter
 
 - Etape 3 : La CI
-    - Créer gitlabworkflow et le YML
+    - Créer github workflow et le YML pour les steps Lint et Build
+    - Tester la CI
