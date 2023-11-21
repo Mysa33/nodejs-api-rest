@@ -8,7 +8,11 @@
     "start": "node ./dist/index.js",
     "build": "tsc --build",
     "clean": "tsc --build --clean",
-    "serve": "TS_NODE_FILES=true LOGGER_FORMAT=text nodemon ./src/index.ts"
+    "lint": "eslint '**/*.{ts, json, js}'",
+    "lint:fix": "eslint --fix '**/*.{ts, json, js}'",
+    "serve": "TS_NODE_FILES=true LOGGER_FORMAT=text nodemon ./src/index.ts",
+    "format": "prettier -c  \"**/*.+(js|ts|json|tsx|jsx)\"",
+    "format:fix": "prettier --write \"**/*.+(js|ts|json|tsx|jsx)\""
   },
   "keywords": [],
   "author": "",
@@ -17,7 +21,14 @@
     "@hapi/hapi": "^21.3.2"
   },
   "devDependencies": {
-    "@types/node": "^20.7.1"
+    "@types/node": "^20.7.1",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-security": "^1.7.1",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
   }
 }
-
