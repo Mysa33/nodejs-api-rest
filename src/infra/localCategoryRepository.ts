@@ -1,4 +1,4 @@
-import CategoryRepository from '../domain/CategoryRepository'
+import CategoryRepository from '../domain/categoryRepository'
 import Category from '../domain/category'
 import CategoryNotFound from '../domain/categoryNotFound'
 
