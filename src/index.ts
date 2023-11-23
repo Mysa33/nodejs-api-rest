@@ -1,5 +1,6 @@
 'use strict'
 import { dependencies } from './infra/dependencies'
+import { categoriesRoutes } from './infra/routes'
 
 const Hapi = require('@hapi/hapi')
 
@@ -18,19 +19,8 @@ const init = async () => {
     }
   })
 
-  server.route({
-    method: 'GET',
-    path: '/categories',
-    handler: dependencies.categoryListController.index.bind(dependencies.categoryListController)
-  })
-
-  server.route({
-    method: 'GET',
-    path: '/categories/{category_code}',
-    handler: dependencies.categoryController.index.bind(dependencies.categoryController)
-  })
-
-
+  server.route(categoriesRoutes)
+  
   await server.start()
   console.info('Server running on %s', server.info.uri)
 }
