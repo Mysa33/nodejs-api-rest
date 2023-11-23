@@ -1,11 +1,12 @@
-import GetCategoryListUseCase from './categoryListUseCase'
+import GetCategoryUseCase from './categoryUseCase'
 import { DefaultPresenterHapiResponse } from './defaultPresenter'
 
-export default class CategoriesController {
-  constructor(private readonly getCategoryListUseCase: GetCategoryListUseCase) {}
+export default class CategoryController {
+  constructor(private readonly getCategoryUseCase: GetCategoryUseCase) {}
 
   async index(request: any, hapiJsResponseToolkit: any) {
+    const { category_code } = request.params
     const presenter = new DefaultPresenterHapiResponse(hapiJsResponseToolkit)
-    return this.getCategoryListUseCase.execute(presenter)
+    return this.getCategoryUseCase.execute(category_code, presenter)
   }
 }
