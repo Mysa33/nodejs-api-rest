@@ -1,5 +1,5 @@
-/* eslint-disable */
 'use strict'
+import { dependencies } from './infra/dependencies'
 
 const Hapi = require('@hapi/hapi')
 
@@ -16,6 +16,12 @@ const init = async () => {
     handler: (request: any, h: any) => {
       return 'Hello World!'
     }
+  })
+
+  server.route({
+    method: 'GET',
+    path: '/categories',
+    handler: dependencies.categoryListController.index.bind(dependencies.categoryListController)
   })
 
   await server.start()
