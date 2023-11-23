@@ -24,6 +24,13 @@ const init = async () => {
     handler: dependencies.categoryListController.index.bind(dependencies.categoryListController)
   })
 
+  server.route({
+    method: 'GET',
+    path: '/categories/{category_code}',
+    handler: dependencies.categoryController.index.bind(dependencies.categoryController)
+  })
+
+
   await server.start()
   console.info('Server running on %s', server.info.uri)
 }
