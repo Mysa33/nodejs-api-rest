@@ -8,7 +8,7 @@ on:
 
 jobs:
   
-  lint-and-format-client:
+  lint-and-format:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -47,3 +47,22 @@ jobs:
         run: yarn --immutable
       - name: Run build
         run:  yarn build
+
+  tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client/
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          cache-dependency-path: ./client/yarn.lock
+      - name: Install packages
+        run: yarn --immutable
+      - name: Run tests
+        run:  yarn test
