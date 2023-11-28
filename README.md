@@ -49,24 +49,33 @@ Nous allons développer une API REST en Nodejs et le framework Hapi.
     - La liste des catégories
     - Catégorie par code
     - Un bref refresh concernant la clean archi et design api
-    - **Domain** :
-      - créer l'interface Category
-      - créer l'interface LocalCategoryRepository
-      - Créer une classe notFound afin de gérer les erreurs 404
-    - **Infra** :
-      - créer le repo LocalCategoryRepository
-      - Ajouter les données
-      - Créer find et findAll()
-    - **Application** :
-      - Créer les 2 useCases
-      - créer les 2 controlleurs
-    - Injection des dépendances
-      - Présenter quelques outils
-      - L'approche adoptée dans cet exemple.
-      - Injecter les dépendances (dans les useCases Dans les controlleurs)
+  - **Domain** :
+    - créer l'interface Category
+    - créer l'interface LocalCategoryRepository
+    - Créer une classe notFound afin de gérer les erreurs 404
+  - **Infra** :
+    - créer le repo LocalCategoryRepository
+    - Ajouter les données
+    - Créer find et findAll()
+  - **Application** :
+    - Créer les 2 useCases
+    - créer les 2 controlleurs
+  - Injection des dépendances
+    - Présenter quelques outils
+    - L'approche adoptée dans cet exemple.
+    - Injecter les dépendances (dans les useCases Dans les controlleurs)
     - Binder les controleurs dans `index.ts`
     - Vérifier que nos endpoints fonctionnent
     - Créer un **Presenter** et refacto les useCases.
     - Extraire les routes
 
-- ### Etape 5 : Tester notre Api
+- ### Etape 5 : Tester l'Api
+  
+  - Intallser `Jest` : `yarn add --dev jest`
+  - Intallser `ts-jest` : `yarn add --dev ts-jest`
+  - Installer `@types/jest` : `yarn add --dev @types/jest`
+  - Créer le ficher `jest.config.json` ou modifier le fichier `package.json`
+  - Modifier le fichier `.eslintrc`
+  - Ajouter le script de test dans le fichier `package.json`
+  - Créer la classe `FakeHapiResponse`
+  - Tester l'api
