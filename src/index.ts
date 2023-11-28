@@ -1,5 +1,4 @@
 'use strict'
-import { dependencies } from './infra/dependencies'
 import { categoriesRoutes } from './infra/routes'
 
 const Hapi = require('@hapi/hapi')
@@ -20,7 +19,7 @@ const init = async () => {
   })
 
   server.route(categoriesRoutes)
-  
+
   await server.start()
   console.info('Server running on %s', server.info.uri)
 }
