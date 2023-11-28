@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client/
+        working-directory: ./src
     strategy:
       matrix:
         node-version: [16.x, 18.x]
@@ -61,7 +61,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: yarn
-          cache-dependency-path: ./client/yarn.lock
+          cache-dependency-path: yarn.lock
       - name: Install packages
         run: yarn --immutable
       - name: Run tests
