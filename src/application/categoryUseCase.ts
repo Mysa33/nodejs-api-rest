@@ -13,6 +13,6 @@ export default class GetCategoryUseCase {
       return presenter.notFound(`La catégorie ${categoryCode} n'existe pas`)
     }
 
-    return presenter.found(category, 200)
+    return presenter.found(category)
   }
 }
