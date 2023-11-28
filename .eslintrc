@@ -9,6 +9,9 @@
     },
     "plugins": ["security", "import", "@typescript-eslint", "prettier"],
     "parser": "@typescript-eslint/parser",
-    "extends": "eslint:recommended"
+    "extends": "eslint:recommended",
+    "env": {
+      "jest": true
+    }
   }
   
